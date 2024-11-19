@@ -1,31 +1,31 @@
 ## Deep Learning Project - Suren, Daniel, Mehjabin, Samad
 ## Neural Network Visualization
 
-This repository visualizes the learning process (feedforward to calculate output, error computation, backpropagation through the output to alter weights).
-With the help of this project we can detect the error of each layer.
+This repository provides a comprehensive visualization of the learning process in neural networks, encompassing feedforward calculations, error computation, and backpropagation for weight adjustment. This project enables the detection of errors at each layer of the network.
+
 ### Dataset
 
-We use make_circles Dataset from sklearn.
+The project utilizes the `make_circles` dataset from the `sklearn` library.
 
-### Description
+### Project Structure
 
-We have three main files.
-main.py, utils.py and visualize.py
+The project consists of three primary files:
+- **main.py**: 
+  - Defines the sequential model.
+  - Implements two dense layers using ReLU and Sigmoid activation functions.
+  - Utilizes the Adam optimizer for training.
+  - Generates the datasets required for training and testing.
 
-#### main.py
-- Defines the sequential model.
-- For the two dense layers, we used Relu and Sigmoid activation functions.
-- We used "adam" for optimization.
-- In this file, we generate the datasets.
+- **visualize.py**: 
+  - Employs the Pygame library for visualization.
+  - Integrates TensorFlow for model handling.
+  - Sets the screen dimensions to 1000 pixels in width and height.
+  - Defines properties such as color, radius, and value for each neuron.
 
-#### visualize.py
-- We use pygame library for the visualization.
-- We use TensorFlow.
-- We define the screen width and height to 1000.
-- For each neuron we define it's color, radius and value.
-````
+### Neuron Class
+
+```python
 class Neuron:
-
     def __init__(self, x, y, radius, color, value, font_size=5):
         self.x = x
         self.y = y
@@ -33,16 +33,21 @@ class Neuron:
         self.color = color
         self.value = value
         self.font_size = font_size
-````
-- We assign blue color for the neurons.
-- 2 indicates the neuron numbers for the first layer.
-- 10 indicates the neuron numbers for the second layer.
-- 1 indicates the neuron numbers for the third layer.
+```
 
-````
+- Neurons are represented in blue.
+- The first layer contains 2 neurons.
+- The second layer consists of 10 neurons.
+- The third layer has 1 neuron.
+
+### Network Initialization
+
+```python
 def awake(self):
-        self.scene.append(Network(100, 530, 3, 18, (0, 0, 255), [linear, relu, sigmoid],[], 2, 10, 1))
-````
+        self.scene.append(Network(100, 530, 3, 18, (0, 0, 255), [linear, relu, sigmoid], [], 2, 10, 1))
+```
+
+### Visualizations
 
 ![model.png](model.png)
 ![network2.png](network2.png)
